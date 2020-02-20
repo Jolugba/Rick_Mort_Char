@@ -22,12 +22,12 @@ import java.util.List;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder> {
 
     Context context;
-    List<CharacterNames> listOfUsers;
+    List<Result> listOfUsers;
     LayoutInflater inflater;
     private Object Result;
     //ArrayList<Information> data; //dummy data
 
-    public UsersAdapter(Context context, List<CharacterNames> listOfUsers) {
+    public UsersAdapter(Context context, List<Result> listOfUsers) {
         this.context = context;
         this.listOfUsers = listOfUsers;
     }
@@ -35,13 +35,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
     @Override
     public UsersAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.list_charcters, parent, false);
-        MyViewHolder holder = new MyViewHolder(view);
-        return holder;
+         return new MyViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.MyViewHolder myViewHolder, int i) {
-        CharacterNames currentUser = listOfUsers.get(i);
+        Result currentUser = listOfUsers.get(i);
         myViewHolder.textView.setText(currentUser.getClass().getName());
         myViewHolder.circleImageView.setImageResource(R.drawable.birthday);
         // Glide.with(context)

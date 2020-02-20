@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.rickandmortchar.Api.ApiManager;
 import com.example.rickandmortchar.Model.CharacterNames;
+import com.example.rickandmortchar.Model.Result;
 import com.example.rickandmortchar.Model.User;
 import com.example.rickandmortchar.View.UsersViewInterface;
 
@@ -18,22 +19,24 @@ public class DataCallController {
 
     String TAG = DataCallController.class.getSimpleName();
     public void getUsers(final UsersViewInterface viewInterface){
-        Call<List<CharacterNames>> call = manager. getService().listUsers();
-        call.enqueue(new Callback<List<CharacterNames>>() {
+        Call<CharacterNames> call = manager. getService().listUsers();
+        call.enqueue(new Callback<CharacterNames>() {
             @Override
-            public void onResponse(Call<List<CharacterNames>> call, Response<List<CharacterNames>> response) {
-
+            public void onResponse(Call<CharacterNames> call, Response<CharacterNames> response) {
+                Log.i(TAG,"Unsuccessful, code: "+response.code());
                 if (!response.isSuccessful()){
                     Log.i(TAG,"Unsuccessful, code: "+response.code());
                     return;
                 }
                 else{
-                    List<CharacterNames> users = response.body();
+                    Log.i(TAG,"successful, code: "+response.code());
+
+                    List<Result> users = response.body().getResults();
                     viewInterface.setUpAdapterAndView(users);
                 }
             }
             @Override
-            public void onFailure(Call<List<CharacterNames>> call, Throwable t) {
+            public void onFailure(Call<CharacterNames> call, Throwable t) {
                 Log.i(TAG, "Error : " + t.getLocalizedMessage());
             }
         });

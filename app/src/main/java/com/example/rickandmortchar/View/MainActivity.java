@@ -15,6 +15,7 @@ import android.util.Log;
 import com.example.rickandmortchar.Controller.DataCallController;
 import com.example.rickandmortchar.Controller.MainController;
 import com.example.rickandmortchar.Model.CharacterNames;
+import com.example.rickandmortchar.Model.Result;
 import com.example.rickandmortchar.R;
 import com.example.rickandmortchar.Utils.UsersAdapter;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements  UsersViewInterfa
 
     UsersAdapter adapter;
     String TAG = MainActivity.class.getSimpleName();
-    private List<CharacterNames> listOfUsers;
+    private List<Result> listOfUsers;
     private RecyclerView recyclerView;
     private MainController controller;
 
@@ -42,8 +43,9 @@ public class MainActivity extends AppCompatActivity implements  UsersViewInterfa
     private void getControllerUsers() {
         controller.getUsersFromDataSource();
     }
-    public void setUpAdapterAndView(List<CharacterNames> listOfUsers) {
+    public void setUpAdapterAndView(List<Result> listOfUsers) {
         this.listOfUsers = listOfUsers;
+        Log.i(TAG,"Unsuccessful, code: ");
         if(this.listOfUsers != null){
             adapter = new UsersAdapter(this, listOfUsers);
             recyclerView.setAdapter(adapter);

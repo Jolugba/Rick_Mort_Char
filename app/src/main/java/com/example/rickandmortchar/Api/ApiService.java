@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("/api/character/")
-    Call<List<CharacterNames>> listUsers();
+    Call<CharacterNames> listUsers();
 
 
     @GET("characters/{id}")
