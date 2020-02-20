@@ -1,8 +1,8 @@
 package com.example.rickandmortchar.Controller;
 
 import com.example.rickandmortchar.View.UsersViewInterface;
-
 public class MainController {
+
     private UsersViewInterface view;
     private DataCallController call;
 
