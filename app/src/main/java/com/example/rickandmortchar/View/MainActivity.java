@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements  UsersViewInterfa
     }
     public void setUpAdapterAndView(List<Result> listOfUsers) {
         this.listOfUsers = listOfUsers;
-        Log.i(TAG,"Unsuccessful, code: ");
         if(this.listOfUsers != null){
             adapter = new UsersAdapter(this, listOfUsers);
             recyclerView.setAdapter(adapter);

@@ -9,9 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.example.rickandmortchar.Model.CharacterNames;
-
+import com.bumptech.glide.Glide;
 import com.example.rickandmortchar.Model.Result;
 import com.example.rickandmortchar.R;
 
@@ -23,8 +21,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
     Context context;
     List<Result> listOfUsers;
-    LayoutInflater inflater;
-    private Object Result;
     //ArrayList<Information> data; //dummy data
 
     public UsersAdapter(Context context, List<Result> listOfUsers) {
@@ -34,7 +30,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
     @NonNull
     @Override
     public UsersAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.list_charcters, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_charcters, parent, false);
          return new MyViewHolder(view);
 
     }
@@ -42,12 +38,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.MyViewHolder myViewHolder, int i) {
         Result currentUser = listOfUsers.get(i);
-        myViewHolder.textView.setText(currentUser.getClass().getName());
-        myViewHolder.circleImageView.setImageResource(R.drawable.birthday);
-        // Glide.with(context)
-        //   .load(circleImageView.getDrawable())
-        //   .placeholder(R.drawable.birthday)
-        // .into(circleImageView);
+        myViewHolder.textView.setText(currentUser.getName());
+//        myViewHolder.circleImageView.setImageResource(R.drawable.birthday);
+         Glide.with(context)
+           .load(currentUser.getImage())
+                 .centerCrop()
+           .placeholder(R.drawable.birthday)
+         .into(myViewHolder.circleImageView);
     }
 
     @Override
