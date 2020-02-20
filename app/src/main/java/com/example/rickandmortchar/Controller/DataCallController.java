@@ -3,6 +3,7 @@ package com.example.rickandmortchar.Controller;
 import android.util.Log;
 
 import com.example.rickandmortchar.Api.ApiManager;
+import com.example.rickandmortchar.Model.CharacterNames;
 import com.example.rickandmortchar.Model.User;
 import com.example.rickandmortchar.View.UsersViewInterface;
 
@@ -17,22 +18,22 @@ public class DataCallController {
 
     String TAG = DataCallController.class.getSimpleName();
     public void getUsers(final UsersViewInterface viewInterface){
-        Call<List<User>> call = manager. getService().listUsers();
-        call.enqueue(new Callback<List<User>>() {
+        Call<List<CharacterNames>> call = manager. getService().listUsers();
+        call.enqueue(new Callback<List<CharacterNames>>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+            public void onResponse(Call<List<CharacterNames>> call, Response<List<CharacterNames>> response) {
 
                 if (!response.isSuccessful()){
                     Log.i(TAG,"Unsuccessful, code: "+response.code());
                     return;
                 }
                 else{
-                    List<User> users = response.body();
+                    List<CharacterNames> users = response.body();
                     viewInterface.setUpAdapterAndView(users);
                 }
             }
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
+            public void onFailure(Call<List<CharacterNames>> call, Throwable t) {
                 Log.i(TAG, "Error : " + t.getLocalizedMessage());
             }
         });

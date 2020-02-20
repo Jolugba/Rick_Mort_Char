@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.rickandmortchar.Model.User;
+import com.example.rickandmortchar.Model.CharacterNames;
+
+import com.example.rickandmortchar.Model.Result;
 import com.example.rickandmortchar.R;
 
 
@@ -20,26 +22,15 @@ import java.util.List;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder> {
 
     Context context;
-    List<User> listOfUsers;
+    List<CharacterNames> listOfUsers;
     LayoutInflater inflater;
+    private Object Result;
     //ArrayList<Information> data; //dummy data
 
-    public UsersAdapter(Context context, List<User> listOfUsers) {
+    public UsersAdapter(Context context, List<CharacterNames> listOfUsers) {
         this.context = context;
         this.listOfUsers = listOfUsers;
     }
-
-    ;
-
-
-    // public UsersAdapter(Context context, ArrayList<Information> data) {
-    //   this.context = context;
-
-    // this.data = data;
-    // inflater=LayoutInflater.from(context);
-    // }
-
-
     @NonNull
     @Override
     public UsersAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,8 +41,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.MyViewHolder myViewHolder, int i) {
-        User currentUser = listOfUsers.get(i);
-        myViewHolder.textView.setText(currentUser.getCharacterName());
+        CharacterNames currentUser = listOfUsers.get(i);
+        myViewHolder.textView.setText(currentUser.getClass().getName());
         myViewHolder.circleImageView.setImageResource(R.drawable.birthday);
         // Glide.with(context)
         //   .load(circleImageView.getDrawable())

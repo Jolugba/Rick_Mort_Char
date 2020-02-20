@@ -14,7 +14,7 @@ import android.util.Log;
 
 import com.example.rickandmortchar.Controller.DataCallController;
 import com.example.rickandmortchar.Controller.MainController;
-import com.example.rickandmortchar.Model.User;
+import com.example.rickandmortchar.Model.CharacterNames;
 import com.example.rickandmortchar.R;
 import com.example.rickandmortchar.Utils.UsersAdapter;
 
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements  UsersViewInterfa
 
     UsersAdapter adapter;
     String TAG = MainActivity.class.getSimpleName();
-    private List<User> listOfUsers;
+    private List<CharacterNames> listOfUsers;
     private RecyclerView recyclerView;
     private MainController controller;
 
@@ -36,17 +36,19 @@ public class MainActivity extends AppCompatActivity implements  UsersViewInterfa
         recyclerView=findViewById(R.id.recyclerView);
         controller = new MainController(this, new DataCallController());
         getControllerUsers();
+        setUpAdapterAndView(listOfUsers);
     }
 
     private void getControllerUsers() {
         controller.getUsersFromDataSource();
     }
-    public void setUpAdapterAndView(List<User> listOfUsers) {
+    public void setUpAdapterAndView(List<CharacterNames> listOfUsers) {
         this.listOfUsers = listOfUsers;
         if(this.listOfUsers != null){
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
             adapter = new UsersAdapter(this, listOfUsers);
             recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         }
         else{
             Log.i(TAG, "user list is empty");

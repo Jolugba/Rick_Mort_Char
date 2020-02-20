@@ -2,6 +2,8 @@ package com.example.rickandmortchar.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class User {
     // POJO Class
     @SerializedName("id")
@@ -48,3 +50,8 @@ public class User {
 
 
 }
+
+
+
+
+

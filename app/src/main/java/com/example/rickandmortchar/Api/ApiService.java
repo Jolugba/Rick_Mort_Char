@@ -1,4 +1,5 @@
 package com.example.rickandmortchar.Api;
+import com.example.rickandmortchar.Model.CharacterNames;
 import com.example.rickandmortchar.Model.User;
 
 import java.util.List;
@@ -8,8 +9,9 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    @GET("characters")
-    Call<List<User>> listUsers();
+    @GET("/api/character/")
+    Call<List<CharacterNames>> listUsers();
+
 
     @GET("characters/{id}")
     Call<List<User>> listUsersId(@Path("id") int id);
