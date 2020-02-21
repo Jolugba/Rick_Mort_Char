@@ -1,6 +1,5 @@
 package com.example.rickandmortchar.View;
 
-import com.example.rickandmortchar.Model.CharacterNames;
 import com.example.rickandmortchar.Model.Result;
 
 import java.util.List;

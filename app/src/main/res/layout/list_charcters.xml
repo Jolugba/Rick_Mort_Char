@@ -10,27 +10,27 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:background="@color/colorAccent"
         android:layout_height="wrap_content"
-        ndroid:cardElevation="2dp"
         android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        ndroid:cardElevation="2dp"
+        ndroid:layout_constraintBottom_toBottomOf="parent"
         ndroid:layout_constraintEnd_toEndOf="parent"
         ndroid:layout_constraintStart_toStartOf="parent"
-        ndroid:layout_constraintTop_toTopOf="parent" >
+        ndroid:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="101dp">
 
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/characterPicture"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
                 android:src="@drawable/birthday"
                 app:civ_border_color="#D4AF37"
                 app:civ_border_width="2dp"
@@ -42,15 +42,14 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="52dp"
                 android:fontFamily="@font/arial_bold"
                 android:text="RICK"
                 android:textColor="@color/colorAccent"
                 android:textSize="15sp"
                 ndroid:layout_constraintBottom_toBottomOf="parent"
                 ndroid:layout_constraintStart_toEndOf="@+id/characterPicture"
-                ndroid:layout_constraintTop_toTopOf="parent"
-                ndroid:layout_constraintVertical_bias="0.567" />
+                ndroid:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,10 @@
 package com.example.rickandmortchar.Controller;
-
 import android.util.Log;
-
 import com.example.rickandmortchar.Api.ApiManager;
 import com.example.rickandmortchar.Model.CharacterNames;
 import com.example.rickandmortchar.Model.Result;
-import com.example.rickandmortchar.Model.User;
 import com.example.rickandmortchar.View.UsersViewInterface;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

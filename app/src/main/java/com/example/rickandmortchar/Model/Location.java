@@ -3,7 +3,7 @@ package com.example.rickandmortchar.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-@SuppressWarnings("unused")
+
 public class Location {
 
     @SerializedName("name")

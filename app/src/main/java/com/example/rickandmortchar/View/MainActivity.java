@@ -4,17 +4,13 @@
  * Created on Feb 16-02-2020
  */
 package com.example.rickandmortchar.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.util.Log;
-
 import com.example.rickandmortchar.Controller.DataCallController;
 import com.example.rickandmortchar.Controller.MainController;
-import com.example.rickandmortchar.Model.CharacterNames;
 import com.example.rickandmortchar.Model.Result;
 import com.example.rickandmortchar.R;
 import com.example.rickandmortchar.Utils.UsersAdapter;

@@ -5,15 +5,14 @@ import com.example.rickandmortchar.Utils.Constants;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.rickandmortchar.Utils.Constants.BASE_URL;
 
 public class ApiManager {
 
     private ApiService service;
 
-    public ApiService getService(){
+    public ApiService getService() {
 
-        if(service == null) {
+        if (service == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())

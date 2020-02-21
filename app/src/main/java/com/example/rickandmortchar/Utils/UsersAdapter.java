@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +22,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
     Context context;
     List<Result> listOfUsers;
-    //ArrayList<Information> data; //dummy data
+
 
     public UsersAdapter(Context context, List<Result> listOfUsers) {
         this.context = context;
@@ -39,13 +40,28 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull UsersAdapter.MyViewHolder myViewHolder, int i) {
         Result currentUser = listOfUsers.get(i);
         myViewHolder.textView.setText(currentUser.getName());
-//        myViewHolder.circleImageView.setImageResource(R.drawable.birthday);
          Glide.with(context)
            .load(currentUser.getImage())
                  .centerCrop()
            .placeholder(R.drawable.birthday)
          .into(myViewHolder.circleImageView);
+
+        myViewHolder.circleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context," I'm cute right, you are too!!!  ",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        myViewHolder.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"Nice to meet you   ",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
